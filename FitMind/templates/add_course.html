@@ -1,0 +1,35 @@
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/create_course.css' %}">
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="form-container">
+    <h2>Create Course</h2>
+<form method="POST" action="{% url 'add-course' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Course</button>
+</form>
+</div>
+
+<!-- Add Bundle Creation Form -->
+<div class="form-container">
+<h2>Create Course Bundle</h2>
+<form method="POST" action="{% url 'add-bundle' %}">
+    {% csrf_token %}
+    <label for="bundleName">Bundle Name:</label>
+    <input type="text" id="bundleName" name="bundle_name" required><br><br>
+    <label for="bundlePrice">Bundle Price:</label>
+    <input type="number" id="bundlePrice" name="bundle_price" step="0.01" required><br><br>
+    <label>Select Courses for Bundle:</label><br>
+    {% for course in courses %}
+    <input type="checkbox" id="course{{ forloop.counter }}" name="courses" value="{{ course.id }}">
+    <label for="course{{ forloop.counter }}">{{ course.course_name }}</label><br>
+    {% endfor %}
+    <button type="submit">Create Bundle</button>
+</form>
+</div>
+
+{% endblock %}

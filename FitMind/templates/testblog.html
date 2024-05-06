@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+</head>
+<body>
+    <h1>Blog List</h1>
+    <ul>
+        {% for blog in blogs %}
+        <li>
+            <h2>{{ blog.title }}</h2>
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="width: 200px; height: auto;">
+            <p>Posted by: {{ blog.by_user.username }}</p>
+            <p>Date: {{ blog.date }}</p>
+            <div>{{ blog.content|safe }}</div>
+        </li>
+        {% empty %}
+        <li>No blogs available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
