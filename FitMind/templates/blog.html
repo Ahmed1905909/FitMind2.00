@@ -22,11 +22,11 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Blog Section Begin -->
-{% for blog in blogs %}
     <section class="blog-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 p-0">
+{% for blog in blogs %}
                     <div class="blog-item">
                         <div class="bi-pic">
                             <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
@@ -39,12 +39,14 @@
                             </ul>
                             <p>{{blog.about}}</p>
                         </div>
+                        {% endfor %}
                     </div>
-{% endfor %}
+                </div>
+            </div>
                     <div class="blog-pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
-                        <a href="#">3</a>
+                        <a href="#">5</a>
                         <a href="#">Next</a>
                     </div>
                 </div>

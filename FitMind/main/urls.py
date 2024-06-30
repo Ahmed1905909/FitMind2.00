@@ -9,5 +9,6 @@ path('test/', views.testblog, name='testblog'),
 path('blogs/<int:blog_id>/', views.blog_detail, name='blog-detail'),
 path('addcourse/', views.create_course, name='add-course'),
 path('addbundle/', views.create_bundle, name='add-bundle'),
+path('BMI/', views.BMI, name='bmi'),
 
 ]

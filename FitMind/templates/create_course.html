@@ -1,0 +1,23 @@
+<!-- templates/add_course_content.html -->
+{% block content %}
+{% load static %}
+<script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<style src="{% static 'ckeditor/ckeditor.css' %}"></style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Course Content</title>
+</head>
+<body>
+    <h1>Add Course Content</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <button type="submit" name="save_add_another">Save and Add Another</button>
+    </form>
+</body>
+</html>
+{% endblock %}

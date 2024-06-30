@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=4-h-$udwqb(&qofk94m!1hey#cr@y25t(p%ergqn+z&z9j@3b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'main',
     'ckeditor',
     'user',
-    # 'Moodle',
+    'moodleapp'
 ]
 
 MIDDLEWARE = [
@@ -95,6 +95,7 @@ DATABASES = {
     }
 }
 AUTH_USER_MODEL = 'user.User'
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800  # Example: 50 MB
 
 
 # Password validation

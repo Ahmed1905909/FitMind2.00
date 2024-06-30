@@ -1,0 +1,87 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+<!-- Other stylesheets and scripts -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ content.course.course_name }}</title>
+    <style>
+        .header {
+            background-color: #1a1919;
+            color: white;
+            padding: 10px;
+        }
+        .nav {
+            background-color: #1a1919;
+            color: white;
+            padding: 10px;
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .content, .sidebar {
+            padding: 20px;
+        }
+        .content {
+            flex: 3;
+            background-color: #f0f0f0;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #e0e0e0;
+        }
+        .paging {
+            background-color: #1a19198b;
+            padding: 10px;
+        }
+        .paging a {
+            color: white;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ content.course.course_name }}</h1>
+    </div>
+    
+    <div class="nav">
+        <h2>Page {{ current_page }}: {{ content.title }}</h2>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            <iframe src="https://docs.google.com/document/d/1wDxrOyJVLxhlSkZfxV1WY_IAkRER6wy6/preview" width="1000" height="700" style="border:none;"></iframe>
+        </div>
+        <div class="sidebar">
+            <h3>More Information</h3>
+            <p>Details about the course or additional resources.</p>
+        </div>
+    </div>
+    <div class = "paging">
+        <div>Page {{ current_page }} of {{ total_pages }}</div>
+        {% if current_page > 1 %}
+        <a href="{% url 'view_course_content' course_id=course_id page_number=current_page|add:"-1" %}">Previous</a>
+        {% endif %}
+        {% if current_page < total_pages %}
+        <a href="{% url 'view_course_content' course_id=course_id page_number=current_page|add:"1" %}">Next</a>
+        {% endif %}
+    </div>
+    
+
+
+<script>
+            function openMenu() {
+            document.getElementById("menu").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+        function closeMenu() {
+            document.getElementById("menu").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+</script>
+</body>
+</html>

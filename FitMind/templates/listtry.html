@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document List</title>
+    <link rel="stylesheet" href="{% static 'css/list.css' %}" type="text/css">
+</head>
+<body>
+    <div id="menu" class="menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+        <div class="menu-heading">Course Menu</div>
+        <a href="#">Course Introduction</a>
+        <div class="chapter">
+            <div class="chapter-title">
+                <span>Chapter 3</span><span>100%</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="chapter-title">
+                <span>Chapter 4</span><span>100%</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <div>  
+        <span class="hamburger" onclick="openMenu()">&#9776; Menu</span>
+    </div>
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <span>🌐 EN</span>
+            </div>
+        </header>
+        <main>
+            <h1>Welcome Back, test!</h1>
+            <div class="course-container">
+                <div class="course-card">
+                    <div class="course-info">
+                        <a class="course-name" href="{% url 'view_course_content' course_id=1 page_number=1 %}">course 1</a>                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-info">
+                        <p class="course-name">Advanced Biomechanics</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-info">
+                        <p class="course-name">Nutrition and Exercise</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+<script>
+        function openMenu() {
+            document.getElementById("menu").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+        function closeMenu() {
+            document.getElementById("menu").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+</script>
+</body>
+</html>
